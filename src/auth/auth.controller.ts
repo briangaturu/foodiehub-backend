@@ -109,7 +109,7 @@ export const passwordReset = async (req: Request, res: Response) => {
         const results = await sendNotificationEmail(
             email,
             "Password Reset",
-            user.fullName ?? "",
+            `${user.firstName ?? ""} ${user.lastName ?? ""}`.trim(),
             `Click the link to reset your password: <a href="http://localhost:3000/api/auth/reset/${resetToken}">Reset Password</a>`
         );
         

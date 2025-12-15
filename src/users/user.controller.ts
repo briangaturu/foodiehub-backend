@@ -11,12 +11,12 @@ import {
 export const getUsers = async (req: Request, res: Response) => {
   try {
     const allUsers = await getUsersServices();
-    return res.status(200).json({
+    res.status(200).json({
       message: "Users fetched successfully",
       data: allUsers,
     });
   } catch (error: any) {
-    return res.status(500).json({ error: error.message || "Failed to fetch users" });
+     res.status(500).json({ error: error.message || "Failed to fetch users" });
   }
 };
 
@@ -24,17 +24,17 @@ export const getUsers = async (req: Request, res: Response) => {
 export const getUserById = async (req: Request, res: Response) => {
   const userId = parseInt(req.params.id);
   if (isNaN(userId)) {
-    return res.status(400).json({ error: "Invalid user ID" });
+    res.status(400).json({ error: "Invalid user ID" });
   }
 
   try {
     const user = await getUserByIdServices(userId);
     if (!user) {
-      return res.status(404).json({ message: "User not found" });
+      res.status(404).json({ message: "User not found" });
     }
-    return res.status(200).json({ data: user });
+    res.status(200).json({ data: user });
   } catch (error: any) {
-    return res.status(500).json({ error: error.message || "Failed to fetch user" });
+    res.status(500).json({ error: error.message || "Failed to fetch user" });
   }
 };
 
@@ -42,17 +42,17 @@ export const getUserById = async (req: Request, res: Response) => {
 export const createUser = async (req: Request, res: Response) => {
   const { firstName, lastName, email, password } = req.body;
   if (!firstName || !lastName || !email || !password) {
-    return res.status(400).json({ error: "All fields are required" });
+     res.status(400).json({ error: "All fields are required" });
   }
 
   try {
     const newUser = await createUserServices({ firstName, lastName, email, password });
-    return res.status(201).json({
+    res.status(201).json({
       message: "User created successfully",
       data: newUser,
     });
   } catch (error: any) {
-    return res.status(500).json({ error: error.message || "Failed to create user" });
+    res.status(500).json({ error: error.message || "Failed to create user" });
   }
 };
 
@@ -60,12 +60,12 @@ export const createUser = async (req: Request, res: Response) => {
 export const updateUser = async (req: Request, res: Response) => {
   const userId = parseInt(req.params.id);
   if (isNaN(userId)) {
-    return res.status(400).json({ error: "Invalid user ID" });
+    res.status(400).json({ error: "Invalid user ID" });
   }
 
   const { firstName, lastName, email, password } = req.body;
   if (!firstName || !lastName || !email) {
-    return res.status(400).json({ error: "First name, last name, and email are required" });
+    res.status(400).json({ error: "First name, last name, and email are required" });
   }
 
   try {
@@ -77,15 +77,15 @@ export const updateUser = async (req: Request, res: Response) => {
     });
 
     if (!updatedUser) {
-      return res.status(404).json({ message: "User not found or failed to update" });
+      res.status(404).json({ message: "User not found or failed to update" });
     }
 
-    return res.status(200).json({
+    res.status(200).json({
       message: "User updated successfully",
       data: updatedUser,
     });
   } catch (error: any) {
-    return res.status(500).json({ error: error.message || "Failed to update user" });
+    res.status(500).json({ error: error.message || "Failed to update user" });
   }
 };
 
@@ -93,17 +93,17 @@ export const updateUser = async (req: Request, res: Response) => {
 export const deleteUser = async (req: Request, res: Response) => {
   const userId = parseInt(req.params.id);
   if (isNaN(userId)) {
-    return res.status(400).json({ error: "Invalid user ID" });
+    res.status(400).json({ error: "Invalid user ID" });
   }
 
   try {
     const deletedUser = await deleteUserServices(userId);
     if (!deletedUser) {
-      return res.status(404).json({ message: "User not found" });
+      res.status(404).json({ message: "User not found" });
     }
 
-    return res.status(200).json({ message: "User deleted successfully" });
+    res.status(200).json({ message: "User deleted successfully" });
   } catch (error: any) {
-    return res.status(500).json({ error: error.message || "Failed to delete user" });
+    res.status(500).json({ error: error.message || "Failed to delete user" });
   }
 };
