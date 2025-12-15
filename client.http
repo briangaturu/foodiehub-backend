@@ -1,0 +1,59 @@
+###
+GET http://localhost:5000/
+
+###
+GET http://localhost:5000/api/users
+
+###
+GET http://localhost:5000/api/orders
+
+
+###
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+    "firstName": "elizabeth ",
+    "lastName": "wanjiku",
+   "email": "wanjikukiruno@gmail.com",
+    "password":"newpassword10"
+}
+
+###
+POST  http://localhost:5000/api/meals
+Content-Type: application/json 
+
+{
+ "mealName": "Nyama choma",
+        "mealUrl": "https://images.unsplash.com/photo-1586190848861-99aa4a171e90",
+        "mealDescription": "Perfectly seasoned grilled chicken breast with herb butter, served with roasted seasonal vegetables and garlic mashed potatoes.",
+        "mealPrice": "700",
+        "rating": 5,
+        "mealBadge": "Premium"
+}
+
+###
+PUT   http://localhost:5000/api/auth/update
+Content-Type: application/json 
+Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoiYnJpYW5AZ21haWwuY29tIiwiZXhwIjoxNzQ5NDU5OTA3LCJpYXQiOjE3NDk0NTYzMDd9.2xGZfQ8pAmO36iiaHq4eJolpjFa0KqKH1A6Um9yON2A"
+
+{
+ "email":"brian@gmail.com",
+  "password":"password10" 
+}
+###
+POST http://localhost:5000/api/auth/updatePassword
+Content-Type: application/json
+
+{
+  "email": "brianireri53@gmail.com"
+  "oldPassword" : "password6",
+  "newPassword": "password7"
+}
+###
+POST http://localhost:5000/api/auth/password-reset
+Content-Type: application/json
+
+{
+  "email": "wanjikukiruno@gmail.com"
+  }

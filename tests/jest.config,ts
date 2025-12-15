@@ -1,0 +1,14 @@
+import type { Config } from 'jest';
+
+const config: Config = {
+  preset: 'ts-jest',               // Use ts-jest to handle TypeScript
+  testEnvironment: 'node',         // Use Node environment (perfect for APIs)
+  testMatch: ['**/__tests__/**/*.test.ts'], // Looks for test files
+  moduleFileExtensions: ['ts', 'js', 'json', 'node'],
+  roots: ['<rootDir>/src'],        // Adjust if your source files are elsewhere
+  transform: {
+    '^.+\\.ts$': 'ts-jest'         // Use ts-jest to transform .ts files
+  }
+};
+
+export default config;

@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1748502622035,
+      "tag": "0000_unknown_ma_gnuci",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1748522102426,
+      "tag": "0001_medical_thena",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1750856335459,
+      "tag": "0002_clean_medusa",
+      "breakpoints": true
+    }
+  ]
+}
