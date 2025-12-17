@@ -1,7 +1,7 @@
 import request from 'supertest'
-import app from "../src/app"
-import db from "../src/drizzle/db"
-import { userTable } from '../src/drizzle/schema'
+import app from "../app"
+import db from "../drizzle/db"
+import { userTable } from '../drizzle/schema'
 import { eq } from 'drizzle-orm/pg-core/expressions'
 
 

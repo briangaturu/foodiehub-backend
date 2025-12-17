@@ -3,7 +3,7 @@
     "target": "ES2022",
     "module": "NodeNext",
     "outDir": "./dist",
-    "rootDir": ".",
+    "rootDir": "./src",
     "moduleResolution": "nodenext",
     "strict": true,
     "skipLibCheck": true,
@@ -12,6 +12,6 @@
     "types":[ "jest"],
     "isolatedModules": true
   },
-  "include": ["src/**/*.ts", "tests"],
+  "include": ["src/**/*.ts", "src/tests"],
   "exclude": ["node_modules"]
 }
