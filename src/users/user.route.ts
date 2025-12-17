@@ -12,13 +12,13 @@ userRouter.get('/users', adminRoleAuth, getUsers);
  
 // Get user by ID
 userRouter.get('/users/:id', getUserById);
- 
+
 // Create a new user
-userRouter.post('/users', createUser);
- 
+userRouter.post('/users', adminRoleAuth, createUser);
+
 // Update an existing user
-userRouter.put('/users/:id',updateUser);
- 
+userRouter.put('/users/:id', adminRoleAuth, updateUser);
+
  
 // Delete an existing user
 userRouter.delete('/users/:id', deleteUser);
